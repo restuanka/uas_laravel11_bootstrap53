@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
 
 <h3>Edit Data</h3>

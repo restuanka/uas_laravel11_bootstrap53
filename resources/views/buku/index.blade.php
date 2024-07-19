@@ -1,32 +1,35 @@
 @extends('layout.main2')
 @section('content')
 
-<h3>Master Hari</h3>
+<h3>Master Buku</h3>
 <div class="card">
     <div class="card-header">
-        <a href="{{ route('hari.create') }}" class="btn btn-success btn-sm">Tambah Data</a>
+        <a href="{{ route('buku.create') }}" class="btn btn-success btn-sm">Tambah Data</a>
     </div>
 
 <div class="card-body">
 <table class="table table-sm table-stripped table-bordered">
     <tr>
         <thead>
-        <td>No</td>
-        <td>Nama Hari</td>
-        {{-- <td>Icon</td> --}}
+        <td>Id Buku</td>
+        <td>Nama Buku</td>
+        <td>Pengarang</td>
+        <td>Penerbit</td>
+        <td>Tahun Terbit</td>
         <td>Aksi</td>
     </tr>
 </thead>
 <tbody>
-@foreach($hari as $item )
+@foreach($buku as $item )
     <tr>
-        <td>{{ $loop->iteration }}</td>
-        <td>{{ $item->NamaHari }}</td>
-        {{-- <td><img src="{{ asset('storage/img/' . $item->img) }}" alt="" width="5%"></td> --}}
+        <td>{{ $item->id_buku }}</td>
+        <td>{{ $item->nama_buku }}</td>
+        <td>{{ $item->pengarang }}</td>
+        <td>{{ $item->penerbit }}</td>
+        <td>{{ $item->tahun_terbit }}</td>
         <td>
-            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('hari.destroy', $item->HariID) }}" method="POST">
-                <a href="{{ route('hari.show', $item->HariID) }}" class="btn btn-sm btn-dark">SHOW</a>
-                <a href="{{ route('hari.edit', $item->HariID) }}" class="btn btn-sm btn-primary">EDIT</a>
+            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('buku.destroy', $item->id_buku) }}" method="POST">
+                <a href="{{ route('buku.edit', $item->id_buku) }}" class="btn btn-sm btn-primary">EDIT</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

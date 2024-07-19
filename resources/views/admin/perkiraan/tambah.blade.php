@@ -1,5 +1,5 @@
 
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
 
 <h1>Tambah Data</h1>

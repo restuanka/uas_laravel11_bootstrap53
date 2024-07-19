@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
 <!-- Button trigger modal -->
 <!-- Modal -->
@@ -43,15 +43,15 @@
   </div>
 </div>
 
-<h3>Data Pelajaran</h3>
+<h3>Master Siswa</h3>
 <div class="card">
 <div class="card-header">
 <button type="button" class="btn btn-sm btn-success" onclick="window.location='{{ url('siswa/add') }}'">
-        <i class="fas fa-plus-circle"></i> Add
+        <i class="fas fa-plus-circle"></i> Tambah
 </button>
-<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!-- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
-</button>
+</button> -->
 </div>
 <div class="card-body">
   @if (session('msg')) 
@@ -67,10 +67,11 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>ID Pelajaran</th>
-            <th>Nama Pelajaran</th>
-            <th>Keterangan</th>
-            <th>Aksi</th>            
+            <th>NIS</th>
+            <th>Nama Siswa</th>
+            <th>Kelamin</th>
+            <th>Alamat</th>
+            <th>No Hp</th>          
         </tr>
     </thead>
 
@@ -81,6 +82,8 @@
             <td>{{ $row->id_siswa }}</td>
             <td>{{ $row->nama_siswa }}</td>
             <td>{{ ($row->gender=='M') ? 'Male' : 'Female' }}</td>
+            <td>{{ $row->alamat }}</td>
+            <td>{{ $row->phone }}</td>
             <td>
               <button onclick="window.location='{{ url('siswa/edit/'.$row->id_siswa) }}'" type="button" class="btn btn-sm btn-warning" title="Edit Data">
                 <i class="fas fa-edit"></i>

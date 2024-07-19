@@ -1,32 +1,31 @@
 @extends('layout.main2')
 @section('content')
 
-<h3>Master Hari</h3>
+<h3>Master Penerbit</h3>
 <div class="card">
     <div class="card-header">
-        <a href="{{ route('hari.create') }}" class="btn btn-success btn-sm">Tambah Data</a>
+        <a href="{{ route('penerbit.create') }}" class="btn btn-success btn-sm">Tambah Data</a>
     </div>
 
 <div class="card-body">
 <table class="table table-sm table-stripped table-bordered">
     <tr>
         <thead>
-        <td>No</td>
-        <td>Nama Hari</td>
-        {{-- <td>Icon</td> --}}
+        <td>Id Penerbit</td>
+        <td>Nama Penerbit</td>
+        <td>Kota</td>
         <td>Aksi</td>
     </tr>
 </thead>
 <tbody>
-@foreach($hari as $item )
+@foreach($penerbit as $item )
     <tr>
-        <td>{{ $loop->iteration }}</td>
-        <td>{{ $item->NamaHari }}</td>
-        {{-- <td><img src="{{ asset('storage/img/' . $item->img) }}" alt="" width="5%"></td> --}}
+        <td>{{ $item->id_penerbit }}</td>
+        <td>{{ $item->nama_penerbit }}</td>
+        <td>{{ $item->kota }}</td>
         <td>
-            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('hari.destroy', $item->HariID) }}" method="POST">
-                <a href="{{ route('hari.show', $item->HariID) }}" class="btn btn-sm btn-dark">SHOW</a>
-                <a href="{{ route('hari.edit', $item->HariID) }}" class="btn btn-sm btn-primary">EDIT</a>
+            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('penerbit.destroy', $item->id_penerbit) }}" method="POST">
+                <a href="{{ route('penerbit.edit', $item->id_penerbit) }}" class="btn btn-sm btn-primary">EDIT</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

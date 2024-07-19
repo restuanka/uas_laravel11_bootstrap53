@@ -1,14 +1,13 @@
-
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
-<h1>Master Perkiaan</h1>
+<h3>Master Perkiraan</h3>
 <a class="btn btn-success btn-sm" href="{{ route('perkiraan.create') }}">Tambah Data</a>
 <a class="btn btn-danger btn-sm" href="{{ route('cetak_perkiraan') }}" target="_BLANK">Cetak Perkiraan</a>
 <table class="table table-sm table-stripped table-bordered">
 <thead>
     <tr>
         <td>No</td>
-        <td>Nomor Perkiaan</td>
+        <td>Nomor Perkiraan</td>
         <td>Nama Perkiraan</td>
         <td>Kelompok</td>
         <td>Aksi</td>
@@ -23,11 +22,9 @@
     <td>{{ $item->nama_perkiraan  }}</td>
     <td>{{ $item->tipe }} </td>
     <td>
-
     <button onclick="window.location='{{ route('perkiraan.edit', $item->id_perkiraan) }}'" type="button" class="btn btn-sm btn-warning" title="Edit Data">
                 <i class="fas fa-edit"></i>
               </button>
-
               
 
     <form onsubmit="return deleteData('{{ $item->id_perkiraan }}')" style="display: inline" method="POST"  action="{{ route('perkiraan.destroy', $item->id_perkiraan) }}">

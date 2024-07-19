@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
 
 <h3>Add Data</h3>
@@ -13,7 +13,7 @@
     <form method="POST" action="{{ route('siswa/store') }}">
       @csrf
             <div class="row mb-3">
-              <label for="id_siswa" class="col-sm-2 col-form-label">ID Siswa</label>
+              <label for="id_siswa" class="col-sm-2 col-form-label">NIS</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control form-control-sm @error('id_siswa') is-invalid @enderror" id="id_siswa" name="id_siswa">
                 @error('id_siswa')
@@ -29,6 +29,22 @@
               <div class="col-sm-10">
                 <input type="text" class="form-control form-control-sm @error('nama_siswa') is-invalid @enderror" id="nama_siswa" name="nama_siswa">
                 @error('nama_siswa')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+              <div class="col-sm-10">
+                <select class="form-select form-select-sm @error('gender') is-invalid @enderror" name="gender" id="gender">
+                  <option value="" selected>-Pilih-</option>
+                  <option value="M" {{ (old('gender')=='M') ? 'selected' : '' }}>Male</option>
+                  <option value="F" {{ (old('gender')=='F') ? 'selected' : '' }}>Female</option>
+                </select>
+                @error('gender')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>
@@ -54,22 +70,6 @@
               <div class="col-sm-10">
               <input type="text" class="form-control form-control-sm @error('phone') is-invalid @enderror" id="phone" name="phone">
                 @error('phone')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <label for="alamat" class="col-sm-2 col-form-label">Gender</label>
-              <div class="col-sm-10">
-                <select class="form-select form-select-sm @error('gender') is-invalid @enderror" name="gender" id="gender">
-                  <option value="" selected>-Pilih-</option>
-                  <option value="M" {{ (old('gender')=='M') ? 'selected' : '' }}>Male</option>
-                  <option value="F" {{ (old('gender')=='F') ? 'selected' : '' }}>Female</option>
-                </select>
-                @error('gender')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>

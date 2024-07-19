@@ -1,7 +1,7 @@
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
 
-<h3>Data Siswa</h3>
+<h3>Master Pelajaran</h3>
 <div class="card">
 <div class="card-header">
 <a href="{{ route('pelajaran.create') }}">Add</a>
@@ -17,7 +17,6 @@
     <thead>
         <tr>
             <th>No</th>
-          
             <th>Nama Pelajaran</th>
             <th>Alamat</th>
             <th>Aksi</th>            

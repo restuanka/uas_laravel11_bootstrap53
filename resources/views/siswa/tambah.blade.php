@@ -14,8 +14,8 @@
         <form action="{{ route('siswa.tambah_proses') }}" method="POST">
             @csrf
             <tr>
-                <td><label for="nis">Nis:</label></td>
-                <td><input type="text" name="nis" id="nis"></td>
+                <td><label for="id_siswa">Nis:</label></td>
+                <td><input type="text" name="id_siswa" id="id_siswa"></td>
             </tr>
             <tr>
                 <td><label for="nama">Nama:</label></td>

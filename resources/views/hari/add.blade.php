@@ -1,6 +1,6 @@
-@extends('layout.main')
+@extends('layout.main2')
 @section('content')
-<h31>Tambah Data</h3>
+<h3>Tambah Data</h3>
 <form action="{{ route('hari.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <table>
